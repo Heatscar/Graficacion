@@ -8,7 +8,8 @@ def abrir():
     global lector
     productos = open("datos.csv")
     lector = csv.reader(productos)
-
+    #Next sirve para brincarse la primera linea
+    next(lector)
 
 def cerrar():
     global productos
@@ -20,3 +21,4 @@ def imprimir():
         print("Precio:", fila[1])
         print("Cantidad", fila[2])
     productos.seek(0)
+    next(lector)
