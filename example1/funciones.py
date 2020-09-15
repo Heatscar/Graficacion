@@ -50,3 +50,24 @@ def actualizar(nombre, cantidad):
     os.rename("tmp.csv", "datos.csv")
     
     abrir()
+
+def vender(nombre, cantidad):
+    temporal = open("tmp.csv", "w")
+    productos.seek(0)
+    for fila in lector:
+        if fila[0] == nombre:
+            if cantidad > int(fila[2]):
+                print("Sin stock")
+                temporal.write(fila[0] + "," + fila[1] + "," + str(fila[2])+"\n")
+            else:
+                cantidad_final = int(fila[2]) - cantidad
+                temporal.write(fila[0] + "," + fila[1] + "," + str(cantidad_final)+"\n")
+        else:
+            temporal.write(fila[0] + "," + fila[1] + "," + str(fila[2])+"\n")
+        
+    temporal.close()
+    cerrar()
+    os.remove("datos.csv")
+    os.rename("tmp.csv", "datos.csv")
+    
+    abrir()
