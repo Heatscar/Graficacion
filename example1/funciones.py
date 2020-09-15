@@ -46,6 +46,7 @@ def actualizar(nombre, cantidad):
         
     temporal.close()
     cerrar()
+    os.remove("datos.csv")
     os.rename("tmp.csv", "datos.csv")
     
     abrir()

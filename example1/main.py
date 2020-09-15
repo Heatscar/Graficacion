@@ -10,6 +10,15 @@ def agregar():
     f.imprimir()
     f.cerrar()
 
+def cambiar_cantidad():
+    f.abrir()
+    nombre = input("Escribe el nombre: ")
+    cantidad = int(input("Escribe la cantidad: "))
+
+    f.actualizar(nombre,cantidad)
+    f.imprimir()
+    f.cerrar()
+
 def abrir_cerrar():
     f.abrir()
     f.imprimir()
@@ -17,5 +26,6 @@ def abrir_cerrar():
 
 
 if __name__ == '__main__':
+    #agregar()
+    cambiar_cantidad()
     #abrir_cerrar()
-    agregar()
